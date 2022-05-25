@@ -46,3 +46,21 @@ public class Solution {
 	}
 
 }
+
+//Second technique bottom up approach (basically break the string first then do the work)
+
+ public static String remove(String stringname,String finalstring){
+       if(stringname.length()<=1){
+            return stringname;
+        }
+        
+        String tempstring=remove(stringname.substring(1),finalstring);
+        
+        if(stringname.charAt(0)!=tempstring.charAt(0)) {
+        	finalstring=stringname.charAt(0)+tempstring;
+        }else {
+        	return tempstring;
+        }
+        return finalstring;
+    }
+
